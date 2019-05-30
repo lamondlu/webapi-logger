@@ -52,7 +52,7 @@
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(112, 39);
             this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "开始监听";
+            this.btnStart.Text = "Start tracking";
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
@@ -66,7 +66,7 @@
             this.gbLogs.Size = new System.Drawing.Size(1031, 446);
             this.gbLogs.TabIndex = 3;
             this.gbLogs.TabStop = false;
-            this.gbLogs.Text = "日志列表";
+            this.gbLogs.Text = "Logs";
             // 
             // dgvLogs
             // 
@@ -110,26 +110,26 @@
             this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.事件源配置ToolStripMenuItem});
             this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
-            this.设置ToolStripMenuItem.Text = "设置";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.设置ToolStripMenuItem.Text = "Settings";
             // 
             // 事件源配置ToolStripMenuItem
             // 
             this.事件源配置ToolStripMenuItem.Name = "事件源配置ToolStripMenuItem";
             this.事件源配置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.事件源配置ToolStripMenuItem.Text = "事件源配置";
+            this.事件源配置ToolStripMenuItem.Text = "Data Source";
             // 
             // tsmiAboutUs
             // 
             this.tsmiAboutUs.Name = "tsmiAboutUs";
-            this.tsmiAboutUs.Size = new System.Drawing.Size(45, 20);
-            this.tsmiAboutUs.Text = "关于";
+            this.tsmiAboutUs.Size = new System.Drawing.Size(72, 20);
+            this.tsmiAboutUs.Text = "About Me";
             this.tsmiAboutUs.Click += new System.EventHandler(this.tsmiAboutUs_Click);
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "ID";
-            this.Column1.HeaderText = "请求ID";
+            this.Column1.HeaderText = "Request ID";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -137,7 +137,7 @@
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "请求方式";
+            this.Column6.HeaderText = "Method";
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
@@ -147,7 +147,7 @@
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "Url";
-            this.Column2.HeaderText = "请求API";
+            this.Column2.HeaderText = "Request URL";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
@@ -155,7 +155,7 @@
             // Column3
             // 
             this.Column3.DataPropertyName = "Result";
-            this.Column3.HeaderText = "操作结果";
+            this.Column3.HeaderText = "Result";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -164,7 +164,7 @@
             // Column4
             // 
             this.Column4.DataPropertyName = "StatusCode";
-            this.Column4.HeaderText = "返回状态码";
+            this.Column4.HeaderText = "Status Code";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -181,8 +181,10 @@
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLogger";
-            this.Text = "日志查看器";
+            this.Text = "ASP.NET Core Logger";
             this.Load += new System.EventHandler(this.FrmLogger_Load);
             this.gbLogs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();

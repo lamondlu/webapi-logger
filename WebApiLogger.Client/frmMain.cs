@@ -86,7 +86,7 @@ namespace WebApiLogger.Client
             if (!_isStart)
             {
                 _isStart = true;
-                btnStart.Text = "停止监听";
+                btnStart.Text = "Stop tracking";
                 _thread = new Thread(Start);
 
                 _thread.Start();
@@ -94,7 +94,7 @@ namespace WebApiLogger.Client
             else
             {
                 _isStart = false;
-                btnStart.Text = "开始监听";
+                btnStart.Text = "Start tracking";
                 _thread.Abort();
                 _thread = null;
             }
