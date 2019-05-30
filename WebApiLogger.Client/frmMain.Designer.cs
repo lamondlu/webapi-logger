@@ -31,19 +31,23 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.gbLogs = new System.Windows.Forms.GroupBox();
             this.dgvLogs = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.事件源配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnStart
             // 
-            this.btnStart.Location = new System.Drawing.Point(1266, 14);
+            this.btnStart.Location = new System.Drawing.Point(930, 29);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(112, 39);
@@ -59,7 +63,7 @@
             this.gbLogs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gbLogs.Name = "gbLogs";
             this.gbLogs.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gbLogs.Size = new System.Drawing.Size(1364, 702);
+            this.gbLogs.Size = new System.Drawing.Size(1031, 446);
             this.gbLogs.TabIndex = 3;
             this.gbLogs.TabStop = false;
             this.gbLogs.Text = "日志列表";
@@ -76,9 +80,9 @@
             this.Column6,
             this.Column2,
             this.Column3,
-            this.Column4,
-            this.Column5});
-            this.dgvLogs.Location = new System.Drawing.Point(20, 49);
+            this.Column4});
+            this.dgvLogs.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvLogs.Location = new System.Drawing.Point(3, 20);
             this.dgvLogs.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dgvLogs.Name = "dgvLogs";
             this.dgvLogs.ReadOnly = true;
@@ -86,9 +90,40 @@
             this.dgvLogs.RowHeadersWidth = 51;
             this.dgvLogs.RowTemplate.Height = 27;
             this.dgvLogs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLogs.Size = new System.Drawing.Size(1333, 635);
+            this.dgvLogs.Size = new System.Drawing.Size(1025, 422);
             this.dgvLogs.TabIndex = 0;
             this.dgvLogs.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvLogs_CellMouseDoubleClick);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设置ToolStripMenuItem,
+            this.关于ToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.事件源配置ToolStripMenuItem});
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.设置ToolStripMenuItem.Text = "设置";
+            // 
+            // 事件源配置ToolStripMenuItem
+            // 
+            this.事件源配置ToolStripMenuItem.Name = "事件源配置ToolStripMenuItem";
+            this.事件源配置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.事件源配置ToolStripMenuItem.Text = "事件源配置";
+            // 
+            // 关于ToolStripMenuItem
+            // 
+            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.关于ToolStripMenuItem.Text = "关于";
             // 
             // Column1
             // 
@@ -109,12 +144,12 @@
             // 
             // Column2
             // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column2.DataPropertyName = "Url";
             this.Column2.HeaderText = "请求API";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
-            this.Column2.Width = 300;
             // 
             // Column3
             // 
@@ -128,36 +163,32 @@
             // Column4
             // 
             this.Column4.DataPropertyName = "StatusCode";
-            this.Column4.HeaderText = "返回值";
+            this.Column4.HeaderText = "返回状态码";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Width = 125;
             // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column5.DataPropertyName = "ErrorTrace";
-            this.Column5.HeaderText = "错误消息";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
             // frmLogger
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1392, 789);
+            this.ClientSize = new System.Drawing.Size(1060, 528);
             this.Controls.Add(this.gbLogs);
             this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmLogger";
             this.Text = "日志查看器";
             this.Load += new System.EventHandler(this.FrmLogger_Load);
             this.gbLogs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -165,12 +196,15 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.GroupBox gbLogs;
         private System.Windows.Forms.DataGridView dgvLogs;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 事件源配置ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
 
