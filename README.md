@@ -1,2 +1,3 @@
-# webapi-logger
-a ASP.NET Core logger application including the Host and Client
+WebApi日志监控器 v1.0
+
+![](./images/20190530161850.png)
