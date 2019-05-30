@@ -120,5 +120,11 @@ namespace WebApiLogger.Client
             frmAbout form = new frmAbout();
             form.ShowDialog();
         }
+
+        private void tsmiDataSourceConfiguration_Click(object sender, EventArgs e)
+        {
+            frmConfig form = new frmConfig();
+            form.ShowDialog();
+        }
     }
 }
