@@ -1,5 +1,5 @@
 # ASP.NET Core WebApi Logger v1.0
-a WebApi Logger based on ASP.NET Core, which can tracking asp.net core webapi request/response in a winform application
+a WebApi Logger based on ASP.NET Core, which can tracking asp.net core webapi request/response in a winform application via RabbitMQ
 
 ![](./images/20190530161850.png)
 
