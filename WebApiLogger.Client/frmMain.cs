@@ -114,5 +114,11 @@ namespace WebApiLogger.Client
                 details.ShowDialog();
             }
         }
+
+        private void tsmiAboutUs_Click(object sender, EventArgs e)
+        {
+            frmAbout form = new frmAbout();
+            form.ShowDialog();
+        }
     }
 }

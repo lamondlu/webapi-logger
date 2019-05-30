@@ -34,7 +34,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.事件源配置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiAboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -98,7 +98,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.设置ToolStripMenuItem,
-            this.关于ToolStripMenuItem});
+            this.tsmiAboutUs});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
@@ -119,11 +119,12 @@
             this.事件源配置ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.事件源配置ToolStripMenuItem.Text = "事件源配置";
             // 
-            // 关于ToolStripMenuItem
+            // tsmiAboutUs
             // 
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
-            this.关于ToolStripMenuItem.Text = "关于";
+            this.tsmiAboutUs.Name = "tsmiAboutUs";
+            this.tsmiAboutUs.Size = new System.Drawing.Size(45, 20);
+            this.tsmiAboutUs.Text = "关于";
+            this.tsmiAboutUs.Click += new System.EventHandler(this.tsmiAboutUs_Click);
             // 
             // Column1
             // 
@@ -199,7 +200,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 设置ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 事件源配置ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAboutUs;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
