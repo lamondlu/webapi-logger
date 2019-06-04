@@ -18,8 +18,10 @@ namespace WebApiLogger.Client
     public partial class frmLogger : Form
     {
         private List<ILoggerData> _loggerDatas = new List<ILoggerData>();
+        private List<int> _successCodes = new List<int> { 200, 201, 204 };
         private bool _isStart = false;
         private Thread _thread = null;
+        private bool _onlyError = false;
 
         private delegate void FlushClient(ILoggerData data);
 
@@ -32,15 +34,30 @@ namespace WebApiLogger.Client
             }
             else
             {
-                _loggerDatas.Add(data);
+                if (data.Method != "OPTIONS")
+                {
+                    if (!_successCodes.Contains(data.StatusCode))
+                    {
+                        data.Result = OperationResult.Error;
+                        niErrors.BalloonTipTitle = "Error";
+                        niErrors.BalloonTipIcon = ToolTipIcon.Error;
+                        niErrors.BalloonTipText = $"An error happened on [{data.Method}]{data.Url}.";
+                        niErrors.ShowBalloonTip(10000);
+                    }
 
-                var rowId = dgvLogs.Rows.Add();
-                dgvLogs.Rows[rowId].Cells[0].Value = data.ID;
-                dgvLogs.Rows[rowId].Cells[1].Value = data.Method.ToUpper();
-                dgvLogs.Rows[rowId].Cells[2].Value = data.Url;
-                dgvLogs.Rows[rowId].Cells[3].Value = data.Result;
-                dgvLogs.Rows[rowId].Cells[4].Value = data.StatusCode;
-                dgvLogs.Rows[rowId].Cells[5].Value = data.ErrorTrace;
+                    _loggerDatas.Add(data);
+
+                    if (data.Result == OperationResult.Error || !_onlyError)
+                    {
+                        var rowId = dgvLogs.Rows.Add();
+                        dgvLogs.Rows[rowId].Cells[0].Value = data.ID;
+                        dgvLogs.Rows[rowId].Cells[1].Value = data.Method.ToUpper();
+                        dgvLogs.Rows[rowId].Cells[2].Value = data.Url;
+                        dgvLogs.Rows[rowId].Cells[3].Value = data.Result;
+                        dgvLogs.Rows[rowId].Cells[4].Value = data.StatusCode;
+                        dgvLogs.Rows[rowId].Cells[5].Value = data.ErrorTrace;
+                    }
+                }
             }
         }
 
@@ -125,6 +142,20 @@ namespace WebApiLogger.Client
         {
             frmConfig form = new frmConfig();
             form.ShowDialog();
+        }
+
+        private void cbOnlyError_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOnlyError.Checked)
+            {
+                _onlyError = true;
+                //dgvLogs.DataSource = _loggerDatas.Where(p => p.Result == OperationResult.Error).ToList();
+            }
+            else
+            {
+                _onlyError = false;
+                //dgvLogs.DataSource = _loggerDatas.ToList();
+            }
         }
     }
 }

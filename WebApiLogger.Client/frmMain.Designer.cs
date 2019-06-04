@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogger));
             this.btnStart = new System.Windows.Forms.Button();
             this.gbLogs = new System.Windows.Forms.GroupBox();
             this.dgvLogs = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiDataSourceConfiguration = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiAboutUs = new System.Windows.Forms.ToolStripMenuItem();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.设置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDataSourceConfiguration = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiAboutUs = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbOnlyError = new System.Windows.Forms.CheckBox();
+            this.niErrors = new System.Windows.Forms.NotifyIcon(this.components);
             this.gbLogs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLogs)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -95,39 +98,6 @@
             this.dgvLogs.TabIndex = 0;
             this.dgvLogs.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvLogs_CellMouseDoubleClick);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.设置ToolStripMenuItem,
-            this.tsmiAboutUs});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // 设置ToolStripMenuItem
-            // 
-            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiDataSourceConfiguration});
-            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
-            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.设置ToolStripMenuItem.Text = "Settings";
-            // 
-            // tsmiDataSourceConfiguration
-            // 
-            this.tsmiDataSourceConfiguration.Name = "tsmiDataSourceConfiguration";
-            this.tsmiDataSourceConfiguration.Size = new System.Drawing.Size(180, 22);
-            this.tsmiDataSourceConfiguration.Text = "Data Source";
-            this.tsmiDataSourceConfiguration.Click += new System.EventHandler(this.tsmiDataSourceConfiguration_Click);
-            // 
-            // tsmiAboutUs
-            // 
-            this.tsmiAboutUs.Name = "tsmiAboutUs";
-            this.tsmiAboutUs.Size = new System.Drawing.Size(72, 20);
-            this.tsmiAboutUs.Text = "About Me";
-            this.tsmiAboutUs.Click += new System.EventHandler(this.tsmiAboutUs_Click);
-            // 
             // Column1
             // 
             this.Column1.DataPropertyName = "ID";
@@ -172,11 +142,61 @@
             this.Column4.ReadOnly = true;
             this.Column4.Width = 125;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.设置ToolStripMenuItem,
+            this.tsmiAboutUs});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
+            this.menuStrip1.TabIndex = 4;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // 设置ToolStripMenuItem
+            // 
+            this.设置ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDataSourceConfiguration});
+            this.设置ToolStripMenuItem.Name = "设置ToolStripMenuItem";
+            this.设置ToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.设置ToolStripMenuItem.Text = "Settings";
+            // 
+            // tsmiDataSourceConfiguration
+            // 
+            this.tsmiDataSourceConfiguration.Name = "tsmiDataSourceConfiguration";
+            this.tsmiDataSourceConfiguration.Size = new System.Drawing.Size(137, 22);
+            this.tsmiDataSourceConfiguration.Text = "Data Source";
+            this.tsmiDataSourceConfiguration.Click += new System.EventHandler(this.tsmiDataSourceConfiguration_Click);
+            // 
+            // tsmiAboutUs
+            // 
+            this.tsmiAboutUs.Name = "tsmiAboutUs";
+            this.tsmiAboutUs.Size = new System.Drawing.Size(72, 20);
+            this.tsmiAboutUs.Text = "About Me";
+            this.tsmiAboutUs.Click += new System.EventHandler(this.tsmiAboutUs_Click);
+            // 
+            // cbOnlyError
+            // 
+            this.cbOnlyError.AutoSize = true;
+            this.cbOnlyError.Location = new System.Drawing.Point(17, 39);
+            this.cbOnlyError.Name = "cbOnlyError";
+            this.cbOnlyError.Size = new System.Drawing.Size(93, 21);
+            this.cbOnlyError.TabIndex = 5;
+            this.cbOnlyError.Text = "Only Errors";
+            this.cbOnlyError.UseVisualStyleBackColor = true;
+            this.cbOnlyError.CheckedChanged += new System.EventHandler(this.cbOnlyError_CheckedChanged);
+            // 
+            // niErrors
+            // 
+            this.niErrors.Text = "Errors";
+            this.niErrors.Visible = true;
+            // 
             // frmLogger
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1060, 528);
+            this.Controls.Add(this.cbOnlyError);
             this.Controls.Add(this.gbLogs);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.menuStrip1);
@@ -211,6 +231,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.CheckBox cbOnlyError;
+        private System.Windows.Forms.NotifyIcon niErrors;
     }
 }
 

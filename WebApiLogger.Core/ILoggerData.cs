@@ -8,7 +8,7 @@ namespace WebApiLogger.Core
     {
         Guid ID { get; set; }
 
-        OperationResult Result { get; }
+        OperationResult Result { get; set; }
 
         string Method { get; set; }
 
