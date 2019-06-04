@@ -61,12 +61,22 @@ namespace WebApiLogger.Client
 
             var stringBuilder = new StringBuilder();
 
-            foreach (var item in loggerData.QueryString.Split(';'))
+            if (loggerData.QueryString.Contains(';'))
             {
-                var key = item.Split(':')[0];
-                var value = item.Split(':')[1];
+                foreach (var item in loggerData.QueryString.Split(';'))
+                {
+                    if (item.Contains(':'))
+                    {
+                        var key = item.Split(':')[0];
+                        var value = item.Split(':')[1];
 
-                stringBuilder.AppendLine($"{key}:{value}");
+                        stringBuilder.AppendLine($"{key}:{value}");
+                    }
+                    else
+                    {
+                        stringBuilder.AppendLine($"{item}");
+                    }
+                }
             }
 
             tbRequestBody.Text = stringBuilder.ToString();
