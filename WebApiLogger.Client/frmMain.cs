@@ -73,9 +73,10 @@ namespace WebApiLogger.Client
 
         }
 
+
         public void Start()
         {
-            LogConnectorFactory.GetLogConnector("RabbitMQ").StartTracking(UpdateListData);
+            LogConnectorFactory.GetLogConnector().StartTracking(UpdateListData);
         }
 
         private void BtnStart_Click(object sender, EventArgs e)

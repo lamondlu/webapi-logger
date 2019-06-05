@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationAccessor.cs" />
+    <Compile Include="Factory\AzureServiceBusConnector.cs" />
     <Compile Include="Factory\ILogConnector.cs" />
     <Compile Include="Factory\LogConnectorFactory.cs" />
     <Compile Include="Factory\RabbitMQLogConnector.cs" />
