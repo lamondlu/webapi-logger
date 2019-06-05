@@ -3,11 +3,9 @@ using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http.Internal;
 using WebApiLogger.Core;
 
 namespace WebApiLogger.Host
@@ -80,7 +78,7 @@ namespace WebApiLogger.Host
             logger.Method = request.Method;
             logger.QueryString = request.QueryString.Value;
 
-            if (request.ContentType == "multipart/form-data")
+            if (request.ContentType == "multipart/form-data" || request.ContentType == "application/x-www-form-urlencoded")
             {
                 logger.FormData = BuildFormString(request.Form);
             }
