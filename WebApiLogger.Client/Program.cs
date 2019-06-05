@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebApiLogger.Client.Configuration;
 
 namespace WebApiLogger.Client
 {
@@ -14,6 +15,8 @@ namespace WebApiLogger.Client
         [STAThread]
         static void Main()
         {
+            ConfigurationAccessor.GetConfig();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new frmLogger());

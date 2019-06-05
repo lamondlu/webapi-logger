@@ -1,1 +1,9 @@
-﻿
+﻿{
+  "Source": "RabbitMQ",
+  "RabbitMQ": {
+    "Url": "amqp://172.27.0.189:5672",
+    "UserName": "guest",
+    "Password": "guest",
+    "QueueName": "WebApiLoggerEventQueue"
+  }
+}

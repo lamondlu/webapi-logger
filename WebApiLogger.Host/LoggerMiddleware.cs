@@ -47,7 +47,7 @@ namespace WebApiLogger.Host
                 }
                 catch (Exception ex)
                 {
-                    BuildErrorLoggerData(context.Response, ex, logger);
+                    BuildErrorLoggerData(ex, logger);
                 }
                 finally
                 {
@@ -84,7 +84,7 @@ namespace WebApiLogger.Host
             }
         }
 
-        private void BuildErrorLoggerData(HttpResponse response, Exception exception, ILoggerData logger)
+        private void BuildErrorLoggerData(Exception exception, ILoggerData logger)
         {
             logger.StatusCode = 500;
             logger.ErrorTrace = exception.StackTrace;

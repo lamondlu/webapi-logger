@@ -16,5 +16,30 @@ namespace WebApiLogger.Client
         {
             InitializeComponent();
         }
+
+        private void btnVerify_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Validate()
+        {
+            
+        }
+
+        private void frmConfig_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

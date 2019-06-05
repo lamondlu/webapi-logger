@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WebApiLogger.Client.Configuration;
 using WebApiLogger.Core;
 
 namespace WebApiLogger.Client
@@ -74,14 +75,20 @@ namespace WebApiLogger.Client
 
         public void Start()
         {
-            var factory = new ConnectionFactory() { Uri = new Uri("amqp://172.27.0.189:5672"), UserName = "guest", Password = "guest" };
+            var factory = new ConnectionFactory()
+            {
+                Uri = new Uri(ConfigurationAccessor.GetConfig().RabbitMQ.Url
+                ),
+                UserName = ConfigurationAccessor.GetConfig().RabbitMQ.UserName,
+                Password = ConfigurationAccessor.GetConfig().RabbitMQ.Password
+            };
 
             IConnection connection = factory.CreateConnection();
             IModel channel = connection.CreateModel();
 
             var queueName = channel.QueueDeclare().QueueName;
 
-            channel.QueueBind(queue: queueName, exchange: "WebApiLoggerEventQueue", routingKey: "");
+            channel.QueueBind(queue: queueName, exchange: ConfigurationAccessor.GetConfig().RabbitMQ.QueueName, routingKey: "");
 
             var consumer = new EventingBasicConsumer(channel);
 
@@ -156,6 +163,11 @@ namespace WebApiLogger.Client
                 _onlyError = false;
                 //dgvLogs.DataSource = _loggerDatas.ToList();
             }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }
