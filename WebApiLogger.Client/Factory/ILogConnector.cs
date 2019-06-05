@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApiLogger.Core;
 
 namespace WebApiLogger.Client.Factory
 {
@@ -10,6 +11,6 @@ namespace WebApiLogger.Client.Factory
     {
         string Name { get; }
 
-        
+        void StartTracking(Action<ILoggerData> callback);
     }
 }
