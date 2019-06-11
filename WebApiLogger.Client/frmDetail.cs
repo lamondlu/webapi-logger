@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebApiLogger.Core;
-using WebApiLogger.Core.Extensions;;
+using WebApiLogger.Core.Extensions;
 
 namespace WebApiLogger.Client
 {
