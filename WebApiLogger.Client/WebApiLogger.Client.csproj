@@ -61,10 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ConfigurationAccessor.cs" />
-    <Compile Include="Factory\AzureServiceBusConnector.cs" />
-    <Compile Include="Factory\ILogConnector.cs" />
     <Compile Include="Factory\LogConnectorFactory.cs" />
-    <Compile Include="Factory\RabbitMQLogConnector.cs" />
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +127,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebApiLogger.Connector.RabbitMQ\WebApiLogger.Connector.RabbitMQ.csproj">
+      <Project>{554f8067-f916-4b22-b3c6-b7bc58d08391}</Project>
+      <Name>WebApiLogger.Connector.RabbitMQ</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebApiLogger.Core\WebApiLogger.Core.csproj">
       <Project>{93752859-2FAF-41C5-9300-4E2D0F763314}</Project>
       <Name>WebApiLogger.Core</Name>

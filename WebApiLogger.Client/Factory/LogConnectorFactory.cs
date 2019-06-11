@@ -5,27 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using WebApiLogger.Client.Configuration;
+using WebApiLogger.Connector.RabbitMQ;
+using WebApiLogger.Core.Connectors;
 
 namespace WebApiLogger.Client.Factory
 {
     public class LogConnectorFactory
     {
-        private static List<ILogConnector> _connectors = new List<ILogConnector>()
-        {
-            new RabbitMQLogConnector()
-        };
-
         public static ILogConnector GetLogConnector()
         {
             var config = ConfigurationAccessor.GetConfig();
 
-            foreach (var connector in _connectors)
+            if (config.SourceName == "RabbitMQ")
             {
-                if (config.Source == connector.Name)
-                {
-                    return connector;
-                }
+                return new RabbitMQLogConnector(config as RabbitMQConfiguration);
             }
+
 
             throw new ConfigurationException("This is no matched connector.");
         }

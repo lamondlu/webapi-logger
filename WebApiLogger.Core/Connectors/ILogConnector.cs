@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using WebApiLogger.Core;
 
-namespace WebApiLogger.Client.Factory
+namespace WebApiLogger.Core.Connectors
 {
     public interface ILogConnector
     {

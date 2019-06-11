@@ -138,10 +138,5 @@ namespace WebApiLogger.Client
                 //dgvLogs.DataSource = _loggerDatas.ToList();
             }
         }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
     }
 }

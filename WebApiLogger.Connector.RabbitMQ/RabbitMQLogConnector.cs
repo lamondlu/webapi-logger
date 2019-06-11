@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using WebApiLogger.Client.Configuration;
+using WebApiLogger.Connector.RabbitMQ;
 using WebApiLogger.Core;
+using WebApiLogger.Core.Connectors;
 
 namespace WebApiLogger.Client.Factory
 {
     public class RabbitMQLogConnector : ILogConnector
     {
+        private readonly RabbitMQConfiguration _configuration;
+
+        public RabbitMQLogConnector(RabbitMQConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
         public string Name
         {
             get { return "RabbitMQ"; }
@@ -22,9 +30,9 @@ namespace WebApiLogger.Client.Factory
         {
             var factory = new ConnectionFactory()
             {
-                Uri = new Uri(ConfigurationAccessor.GetConfig().RabbitMQ.Url),
-                UserName = ConfigurationAccessor.GetConfig().RabbitMQ.UserName,
-                Password = ConfigurationAccessor.GetConfig().RabbitMQ.Password
+                Uri = new Uri(_configuration.Url),
+                UserName = _configuration.UserName,
+                Password = _configuration.Password
             };
 
             IConnection connection = factory.CreateConnection();
@@ -32,7 +40,7 @@ namespace WebApiLogger.Client.Factory
 
             var queueName = channel.QueueDeclare().QueueName;
 
-            channel.QueueBind(queue: queueName, exchange: ConfigurationAccessor.GetConfig().RabbitMQ.QueueName, routingKey: "");
+            channel.QueueBind(queue: queueName, exchange: _configuration.QueueName, routingKey: "");
 
             var consumer = new EventingBasicConsumer(channel);
 
