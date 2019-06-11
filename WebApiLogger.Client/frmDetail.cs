@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WebApiLogger.Core;
+using WebApiLogger.Core.Extensions;;
 
 namespace WebApiLogger.Client
 {
@@ -41,7 +42,7 @@ namespace WebApiLogger.Client
             PrepareQuerystring(_loggerData);
             PrepareRequestBody(_loggerData);
 
-            tbResponseBody.Text = _loggerData.ResponseBody;
+            tbResponseBody.Text = _loggerData.ResponseBody.ConvertJsonString();
         }
 
         private void PrepareRequestBody(ILoggerData loggerData)
@@ -49,7 +50,7 @@ namespace WebApiLogger.Client
             if (string.IsNullOrEmpty(loggerData.Body)) return;
 
             var stringBuilder = new StringBuilder();
-            stringBuilder.AppendLine(loggerData.Body);
+            stringBuilder.AppendLine(loggerData.Body.ConvertJsonString());
 
             tbRequestBody.Text = stringBuilder.ToString();
 
